@@ -1,24 +1,40 @@
 # Milestone Project 1
 
-
 ## UX
 
-### Customer Goals
-#### New customer goals are
-- 
-#### Existing customer goals are
-- 
-#### Developer and Business goals are
-- 
+### Project Goals
+##### The goal of Memory Master is to provide a fun card/pattern matching game that is easy to play. The game is suitable for children and adults
 
-### User stories
-#### As a new customer I want to...
-1. 
+#### Player Goals
+##### Player goals are
+- A fun game to play
+- Easy to understand controls
+- Clearly recognisable cards/patterns
+- Visual and audio feedback
+- A "best score" counter
+- Adjust difficulty to suit age and/or time available for play
 
-#### As an existing customer I want to...
-1. 
+#### Developer and Business goals
+- A game that can entertain children and pass time for adults in waiting rooms
+- Programming that will handle unexpected behaviour well, e.g. will double check before resetting user progress
+- Add a javascript project to his portfolio
+
+#### User stories
+##### As an adult I want...
+1. Different difficulty options to suit the amount of free time I currently have
+2. To be able to set a high score and try to beat it
+3. The number of matches made/remaining to be visible on screen
+4. Visual feedback on which cards are already matched
+
+#### As a child I want...
+1. To change the difficulty to suit my age
+2. Audio and visual feedback on my progress
+3. Easily recognisable cards/patterns
+4. Acknowledgement when I set a new high score or "good" score (i.e. close to high score)
 
 ![Example images of user stories](assets/readme-screenshots/image.png)
+
+### Design Choices
 
 ### Wireframes
 Wireframes can be viewed [here](wireframes/ms2.pdf)
@@ -47,13 +63,16 @@ Wireframes can be viewed [here](wireframes/ms2.pdf)
 3. Scroll to **GitHub Pages**, change the source to **Master Branch** and click **Save**
 4. The site is now deployed. Scroll to **GitHub Pages** again to retrieve the URL
 
-## Content
+## Credits
+
+### Content
 - 
 
-## Media
-### The images used in this site were obtained from ...
+### Media
+#### The images used in this site were obtained from ...
 - 
 
+### Code
 
-## Acknowledgements
+### Acknowledgements
 - 
