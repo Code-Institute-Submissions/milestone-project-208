@@ -35,6 +35,30 @@
 ![Example images of user stories](assets/readme-screenshots/image.png)
 
 ### Design Choices
+##### The game is designed to feel like it is being played on a real board with real cards to help immerse the player. The design choices were made around this theme.
+
+#### Fonts
+- The primary font chosen was Permanent Marker. This font appears in a handwritten style and adds to the feel of realism in the game
+- The secondary font chosen was Handlee, again because its style is handwritten, but also because it's more compact and easier to read
+
+#### Images
+- The card images were chosen as they would be easy to recognise for both adults and children
+
+#### Colours
+- The primary colour chosen is green to simulate playing on a green felt board
+- Black and red are also chosen as they are commonly used in card games. This will help to immerse the player further
+
+#### Styling
+- When the player gets a match right, a green tick is briefly shown over each card to encourage the player
+- Likewise when they make a mistake, an x is shown to let them know it wasn't a match
+
+#### Icons
+- The icons were chosen to be as simple as possible. This makes it intuitive for both adults and children to understand what they do and allows them to play the game without distraction
+
+#### Audio
+- A "swipe" sound is played when turning a card to increase immersion
+- A "ding" sound is used to give positive feedback when a match is found
+- A small theme tune will play when the player beats their top score 
 
 ### Wireframes
 Wireframes can be viewed [here](wireframes/ms2.pdf)
