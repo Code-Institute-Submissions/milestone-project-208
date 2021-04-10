@@ -15,7 +15,7 @@ a {
     text-decoration: none;
 }
 
-/* logo and control styles */
+/* logo, menu and score styles */
 
 .logo-menu-score {
     background-color: #000;
@@ -70,10 +70,38 @@ a {
     font-size: 22px;
 }
 
+/* help styles */
+
+#help-section {
+    position: relative;
+    top: 100px;
+    margin: auto;
+    background: url("../images/cardBack_green1.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 285px;
+    width: 210px;
+    display: none;
+}
+
+#help-section p {
+    text-align: center;
+    color: white;
+    font-family: "Handlee", sans-serif;
+    padding: 15px;
+}
+
+#help-section button {
+    margin: 20px auto;
+    display: block;
+}
 
 /* media queries */
 
 @media(max-width: 413px) {
+
+    /* logo, menu and score styles */
 
     .score {
         width: 100%;
