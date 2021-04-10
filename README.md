@@ -3,10 +3,10 @@
 ## UX
 
 ### Project Goals
-##### The goal of Memory Master is to provide a fun card/pattern matching game that is easy to play. The game is suitable for children and adults
+The goal of Memory Master is to provide a fun card/pattern matching game that is easy to play. The game is suitable for children and adults
 
 #### Player Goals
-##### Player goals are
+Player goals are
 - A fun game to play
 - Easy to understand controls
 - Clearly recognisable cards/patterns
@@ -14,13 +14,13 @@
 - A "best score" counter
 - Adjust difficulty to suit age and/or time available for play
 
-#### Developer and Business goals
+Developer and Business goals
 - A game that can entertain children and pass time for adults in waiting rooms
 - Programming that will handle unexpected behaviour well, e.g. will double check before resetting user progress
 - Add a javascript project to his portfolio
 
 #### User stories
-##### As an adult I want...
+As an adult I want...
 1. Different difficulty options to suit the amount of free time I currently have
 2. To be able to set a high score and try to beat it
 3. The number of matches made/remaining to be visible on screen
@@ -35,7 +35,7 @@
 ![Example images of user stories](assets/readme-screenshots/image.png)
 
 ### Design Choices
-##### The game is designed to feel like it is being played on a real board with real cards to help immerse the player. The design choices were made around this theme.
+The game is designed to feel like it is being played on a real board with real cards to help immerse the player. The design choices were made around this theme.
 
 #### Fonts
 - The primary font chosen was Permanent Marker. This font appears in a handwritten style and adds to the feel of realism in the game
@@ -94,6 +94,7 @@ Wireframes can be viewed [here](wireframes/ms2.pdf)
 
 ### Media
 #### The images used in this site were obtained from ...
+- opengameart.org
 - 
 
 ### Code
