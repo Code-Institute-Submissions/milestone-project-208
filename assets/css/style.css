@@ -13,7 +13,7 @@
 
 /* logo and control styles */
 
-.logo-controls-score {
+.logo-menu-score {
     background-color: #000;
     min-height: 120px;
 }
@@ -24,9 +24,21 @@
     color: red;
 }
 
+.menu-section {
+    text-align: right;
+}
 
-/* temp */
+.top-menu-item {
+    color: white !important;
+    font-size: 24px;
+    padding-right:10px
+}
 
-p, i {
+.score {
+    padding-top: 20px;
+    font-family: "Handlee", sans-serif;
     color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
 }

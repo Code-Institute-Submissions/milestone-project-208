@@ -47,6 +47,7 @@ The game is designed to feel like it is being played on a real board with real c
 #### Colours
 - The primary colour chosen is green to simulate playing on a green felt board
 - Black and red are also chosen as they are commonly used in card games. This will help to immerse the player further
+- Text may be in white/black instead of the colours chosen for accessibility reasons
 
 #### Styling
 - When the player gets a match right, a green tick is briefly shown over each card to encourage the player
