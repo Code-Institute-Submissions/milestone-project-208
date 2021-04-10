@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
     <title>Memory Master</title>
 </head>
 <body>
@@ -18,13 +23,28 @@
                         <h1>Memory Master</h1>
                     </div>
                 </div>
-                <div class="col-3 menu-section">
-                    <a href="javascript:void(0);" class="top-menu-item" onclick="myFunction()">
+                <div class="col-3 menu-volume">
+                    <a href="javascript:void(0);" class="volume" onclick="toggleVolume()">
                         <i class="fa fa-volume-up"></i>
                     </a>
-                    <a href="javascript:void(0);" class="top-menu-item" onclick="myFunction()">
+                    <a href="javascript:void(0);" class="menu" onclick="toggleMenu()">
                         <i class="fa fa-bars"></i>
                     </a>
+                    <div id="menu-list">
+                        <div class="menu-item">
+                            <select name="difficulty" id="difficulty" onchange="changeDifficulty()">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        <a href="javascript:void(0);" class="menu-item" onclick="reset()">
+                            Reset
+                        </a>
+                        <a href="javascript:void(0);" class="menu-item" onclick="showHelp()">
+                           Help
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="score row no-gutters ">
