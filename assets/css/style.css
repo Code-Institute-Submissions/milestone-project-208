@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent Marker:100,200,300,400,500,600,700|Handlee:100,200,300,400,500,600,700');
+
+/* general styles */
+
+.section-image {
+    /* image sourced from https://opengameart.org/content/background-texture-for-a-board-game */
+    background: url("../images/background-image.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 900px;
+}
+
+/* logo and control styles */
+
+.logo-controls-score {
+    background-color: #000;
+    min-height: 120px;
+}
+
+.logo {
+    font-family: "Permanent Marker", sans-serif;
+    text-align: center;
+    color: red;
+}
+
+
+/* temp */
+
+p, i {
+    color: white;
+}
