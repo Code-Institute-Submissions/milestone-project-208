@@ -18,15 +18,15 @@ function hideHelp() {
 // Game setup
 const difficulties = {"easy":4,"medium":5,"hard":6};
 var difficulty = "medium";
+var cardToCellMap;
 
 function setup(difficulty) {
     let columns = difficulties[difficulty];
     let randomCards = buildCardDeck(columns);
     let cellIDs = buildCellIDs(columns);
-    let cardToCellMap = mapCardsToIDs(cellIDs, randomCards);
-    console.log(cardToCellMap);
+    cardToCellMap = mapCardsToIDs(cellIDs, randomCards);
 
-    $(".card-cell").html('<img class="card-image" src="assets/images/cardBack_red2.png" alt="back of card">')
+    $(".card-cell").html('<img class="card-image" src="assets/images/cardBack_red2.png" alt="back of card">');
 }
 
 function mapCardsToIDs(cellIDs, cards) {
@@ -74,6 +74,19 @@ function buildCardDeck(columns) {
     return cardsChosen;
 }
 
+// game play
+
+function turnCard(id) {
+    let card = cardToCellMap[id];
+
+    
+    $(`#${id}`).html(`<img class="card-image" src="assets/images/face-cards/${card}.png" alt="back of card">`);
+}
+
 $(document).ready(function() {
     setup("medium");
+
+    $(".turnable").click(function() {
+        turnCard($(this).attr("id"));
+    });
 });
