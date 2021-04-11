@@ -1,10 +1,6 @@
 function toggleMenu() {
     var status = $("#menu-list").css("display");
-    if(status == "none") {
-        var newStatus = "block";
-    } else {
-        var newStatus = "none";
-    }
+    var newStatus = status == "none" ? "block" : "none";
     $("#menu-list").css("display", newStatus);
 }
 
@@ -16,3 +12,10 @@ function showHelp() {
 function hideHelp() {
     $("#help-section").css("display", "none");
 }
+
+function setup() {
+    $(".card-cell").html('<img class="card-image" src="assets/images/cardBack_red2.png" alt="back of card">')
+}
+$(document).ready(function() {
+    setup();
+});

@@ -97,17 +97,55 @@ a {
     display: block;
 }
 
+/* card styles */
+
+.card-table {
+    margin: auto;
+}
+
+.card-cell {
+    width: 20%;
+}
+
+.card-image {
+    margin: 10px;
+    margin-top: 25px;
+    width: 98px;
+    height: 133px;
+}
+
+/* .hidden {
+    width: 0%;
+    display: none;
+} */
+
 /* media queries */
 
-@media(max-width: 413px) {
+@media(max-width: 750px) {
 
-    /* logo, menu and score styles */
+    /* card styles */
 
-    .score {
-        width: 100%;
+    .card-image {
+        margin-top: 25px;
+        width: 67px;
+        height: 91px;
     }
+}
+
+@media(max-width: 550px) {
+
+    /* score styles */
 
     .counter {
         display: block;
+    }
+
+    /* card styles */
+
+    .card-image {
+        margin: 10px;
+        margin-top: 50px;
+        width: 34px;
+        height: 47px;
     }
 }
