@@ -15,9 +15,18 @@ function hideHelp() {
     $("#help-section").css("display", "none");
 }
 
+function reset() {
+    setup(currentDifficulty);
+}
+
+function changeDifficulty(selected) {
+    currentDifficulty = selected.value;
+    setup(currentDifficulty);
+}
+
 // Game setup
 const difficulties = {"easy":4,"medium":5,"hard":6};
-var difficulty = "medium";
+var currentDifficulty = "medium";
 var cardToCellMap;
 
 function setup(difficulty) {
@@ -46,9 +55,16 @@ function mapCardsToIDs(cellIDs, cards) {
 }
 
 function buildCellIDs(columns) {
+    console.log(columns);
     let IDs = [];
     for(let x = 0; x < 4; x++){
-        for(let y = 0; y < columns; y++){
+        for(let y = 0; y < 6; y++){
+            if(y > columns-1) {
+                $(`#r${x}c${y}`).addClass("hidden");
+            } else {
+                $(`#r${x}c${y}`).removeClass("hidden");
+            }
+            
             IDs.push(`r${x}c${y}`);
         }
     }
@@ -88,13 +104,11 @@ function turnCard(id) {
     } else {
         if(faceUpCard === card)
         {
-            $(`#${id}`).removeClass("turnable");
-            $(`#${faceUpCell}`).removeClass("turnable");
+            $(`#${id}`).off("click");
+            $(`#${faceUpCell}`).off("click");
             faceUpCard = '';
             faceUpCell = '';
         } else {
-                console.log(faceUpCell);
-
             setTimeout(function() {
                 $(`#${id}`).html(`<img class="card-image turnable" src="assets/images/cardBack_red2.png" alt="back of card">`);
                 $(`#${faceUpCell}`).html(`<img class="card-image turnable" src="assets/images/cardBack_red2.png" alt="back of card">`);
@@ -103,10 +117,10 @@ function turnCard(id) {
             },500);
         }
     }
-    
 }
 
 $(document).ready(function() {
+    
     setup("medium");
 
     $(".turnable").click(function() {
