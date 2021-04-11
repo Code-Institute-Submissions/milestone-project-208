@@ -1,3 +1,5 @@
+// menu, volume, help etc
+
 function toggleMenu() {
     let status = $("#menu-list").css("display");
     let newStatus = status == "none" ? "block" : "none";
@@ -13,13 +15,44 @@ function hideHelp() {
     $("#help-section").css("display", "none");
 }
 
+// Game setup
 const difficulties = {"easy":4,"medium":5,"hard":6};
+var difficulty = "medium";
 
 function setup(difficulty) {
     let columns = difficulties[difficulty];
-    buildCardDeck(columns);
+    let randomCards = buildCardDeck(columns);
+    let cellIDs = buildCellIDs(columns);
+    let cardToCellMap = mapCardsToIDs(cellIDs, randomCards);
+    console.log(cardToCellMap);
 
     $(".card-cell").html('<img class="card-image" src="assets/images/cardBack_red2.png" alt="back of card">')
+}
+
+function mapCardsToIDs(cellIDs, cards) {
+    let cardToCellMap = {};
+    let rand;
+    let cardCount = cards.length;
+    cards.forEach(function(card) {
+        rand = Math.floor(Math.random() * cellIDs.length);
+        cell1 = cellIDs.splice(rand,1)[0];
+        rand = Math.floor(Math.random() * cellIDs.length);
+        cell2 = cellIDs.splice(rand,1)[0];
+        cardToCellMap[cell1] = card;
+        cardToCellMap[cell2] = card;
+    });
+
+    return cardToCellMap;
+}
+
+function buildCellIDs(columns) {
+    let IDs = [];
+    for(let x = 0; x < 4; x++){
+        for(let y = 0; y < columns; y++){
+            IDs.push(`r${x}c${y}`);
+        }
+    }
+    return IDs;
 }
 
 function buildCardDeck(columns) {
@@ -33,11 +66,12 @@ function buildCardDeck(columns) {
     });
     let limit = 51;
     let cardsChosen = [];
-    for(var x = 0; x < (columns * 4); x++) {
-        var rand = Math.floor(Math.random() * limit);
+    for(let x = 0; x < ((columns * 4)/2); x++) {
+        let rand = Math.floor(Math.random() * limit);
         limit--;
         cardsChosen.push(deck.splice(rand,1)[0])
     }
+    return cardsChosen;
 }
 
 $(document).ready(function() {
