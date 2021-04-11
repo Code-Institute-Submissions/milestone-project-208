@@ -75,12 +75,35 @@ function buildCardDeck(columns) {
 }
 
 // game play
+var faceUpCard = "";
+var faceUpCell = "";
 
 function turnCard(id) {
     let card = cardToCellMap[id];
+    $(`#${id}`).html(`<img class="card-image" src="assets/images/face-cards/${card}.png" alt="${card}">`);
 
+    if(faceUpCard === '') {
+        faceUpCard = card;
+        faceUpCell = id;
+    } else {
+        if(faceUpCard === card)
+        {
+            $(`#${id}`).removeClass("turnable");
+            $(`#${faceUpCell}`).removeClass("turnable");
+            faceUpCard = '';
+            faceUpCell = '';
+        } else {
+                console.log(faceUpCell);
+
+            setTimeout(function() {
+                $(`#${id}`).html(`<img class="card-image turnable" src="assets/images/cardBack_red2.png" alt="back of card">`);
+                $(`#${faceUpCell}`).html(`<img class="card-image turnable" src="assets/images/cardBack_red2.png" alt="back of card">`);
+                faceUpCard = '';
+                faceUpCell = '';
+            },500);
+        }
+    }
     
-    $(`#${id}`).html(`<img class="card-image" src="assets/images/face-cards/${card}.png" alt="back of card">`);
 }
 
 $(document).ready(function() {
