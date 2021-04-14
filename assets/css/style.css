@@ -101,15 +101,23 @@ a {
 
 .card-table {
     margin: auto;
+    /* height: 700px;
+    min-width: 600px; */
 }
 
-.card-cell {
-    width: 20%;
+.background-img {
+    background: url("../images/cardBack_red2.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    margin: 10px;
+    margin-top: 25px;
+    height: 133px;
+    width: 98px;
 }
 
 .card-image {
-    margin: 10px;
-    margin-top: 25px;
     width: 98px;
     height: 133px;
 }
@@ -125,8 +133,7 @@ a {
 
     /* card styles */
 
-    .card-image {
-        margin-top: 25px;
+    .card-image, .background-img {
         width: 67px;
         height: 91px;
     }
@@ -142,9 +149,7 @@ a {
 
     /* card styles */
 
-    .card-image {
-        margin: 10px;
-        margin-top: 50px;
+    .card-image, .background-img {
         width: 34px;
         height: 47px;
     }
