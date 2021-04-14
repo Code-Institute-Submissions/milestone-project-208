@@ -34,8 +34,20 @@ function setup(difficulty) {
     let randomCards = buildCardDeck(columns);
     let cellIDs = buildCellIDs(columns);
     cardToCellMap = mapCardsToIDs(cellIDs, randomCards);
+    var width = 100/columns;
 
-    $(".card-cell").html('<img class="card-image" src="assets/images/cardBack_red2.png" alt="back of card">');
+    turns = 0;
+    best = 0;
+    matches = 0;
+    $('#turns').html(turns);
+    $('#matches').html(matches);
+
+    $(".turnable").click(function() {
+        turnCard($(this).attr("id"));
+    });
+
+    $(".card-cell").css("width", `${width}%`);
+    $(".card-cell").children("div").html("");
 }
 
 function mapCardsToIDs(cellIDs, cards) {
@@ -55,7 +67,6 @@ function mapCardsToIDs(cellIDs, cards) {
 }
 
 function buildCellIDs(columns) {
-    console.log(columns);
     let IDs = [];
     for(let x = 0; x < 4; x++){
         for(let y = 0; y < 6; y++){
@@ -63,9 +74,9 @@ function buildCellIDs(columns) {
                 $(`#r${x}c${y}`).addClass("hidden");
             } else {
                 $(`#r${x}c${y}`).removeClass("hidden");
+                IDs.push(`r${x}c${y}`);
             }
             
-            IDs.push(`r${x}c${y}`);
         }
     }
     return IDs;
@@ -93,25 +104,38 @@ function buildCardDeck(columns) {
 // game play
 var faceUpCard = "";
 var faceUpCell = "";
+var turns = 0;
+var best = 0;
+var matches = 0;
+var pause = false;
 
 function turnCard(id) {
+    if( id === faceUpCell || pause === true) {
+        return;
+    }
     let card = cardToCellMap[id];
-    $(`#${id}`).html(`<img class="card-image" src="assets/images/face-cards/${card}.png" alt="${card}">`);
+    $(`#${id}`).children("div").html(`<img class="card-image" src="assets/images/face-cards/${card}.png" alt="${card}">`);
 
     if(faceUpCard === '') {
         faceUpCard = card;
         faceUpCell = id;
     } else {
+        pause = true;
+        setTimeout(function() { pause = false; }, 500);
+        turns++;
+        $('#turns').html(turns);
         if(faceUpCard === card)
         {
+            matches++;
+            $('#matches').html(matches);
             $(`#${id}`).off("click");
             $(`#${faceUpCell}`).off("click");
             faceUpCard = '';
             faceUpCell = '';
         } else {
             setTimeout(function() {
-                $(`#${id}`).html(`<img class="card-image turnable" src="assets/images/cardBack_red2.png" alt="back of card">`);
-                $(`#${faceUpCell}`).html(`<img class="card-image turnable" src="assets/images/cardBack_red2.png" alt="back of card">`);
+                $(`#${id}`).children("div").html("");
+                $(`#${faceUpCell}`).children("div").html("");
                 faceUpCard = '';
                 faceUpCell = '';
             },500);
@@ -119,11 +143,9 @@ function turnCard(id) {
     }
 }
 
+
 $(document).ready(function() {
     
     setup("medium");
 
-    $(".turnable").click(function() {
-        turnCard($(this).attr("id"));
-    });
 });
