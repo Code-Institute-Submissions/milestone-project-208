@@ -130,9 +130,11 @@ function turnCard(id) {
             $('#matches').html(matches);
             $(`#${id}`).off("click");
             $(`#${faceUpCell}`).off("click");
+            giveFeedback(true);
             faceUpCard = '';
             faceUpCell = '';
         } else {
+            giveFeedback(false);
             setTimeout(function() {
                 $(`#${id}`).children("div").html("");
                 $(`#${faceUpCell}`).children("div").html("");
@@ -143,6 +145,17 @@ function turnCard(id) {
     }
 }
 
+function giveFeedback(match) {
+    var id = match === true ? "tick" : "redX";
+    // audio files from https://kenney.nl/assets/interface-sounds
+    var audioFile = match === true ? "confirmation_002" : "error_005";
+
+    $(`#${id}`).css("display","block");
+    setTimeout(function() { $(`#${id}`).css("display","none"); }, 1000);
+
+    var audio = new Audio(`assets/audio/${audioFile}.ogg`);
+    audio.play();
+}
 
 $(document).ready(function() {
     

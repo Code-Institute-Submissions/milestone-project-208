@@ -15,6 +15,18 @@ a {
     text-decoration: none;
 }
 
+.feedback {
+    position: absolute;
+    top: 825px;
+    left: 50%;
+    display: none;
+}
+
+.feedback img {
+    position: relative;
+    left: -50%;
+}
+
 /* logo, menu and score styles */
 
 .logo-menu-score {
@@ -131,6 +143,12 @@ a {
 
 @media(max-width: 750px) {
 
+    /* general styles */
+
+    .feedback {
+        top: 650px;
+    }
+
     /* card styles */
 
     .card-image, .background-img {
@@ -140,6 +158,12 @@ a {
 }
 
 @media(max-width: 550px) {
+
+    /* general styles */
+
+    .feedback {
+        top: 500px;
+    }
 
     /* score styles */
 
@@ -153,4 +177,6 @@ a {
         width: 34px;
         height: 47px;
     }
+
+
 }
