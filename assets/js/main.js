@@ -9,10 +9,12 @@ function toggleMenu() {
 function showHelp() {
     $("#menu-list").css("display", "none");
     $("#help-section").css("display", "block");
+    $(".card-table").css("display", "none");
 }
 
 function hideHelp() {
     $("#help-section").css("display", "none");
+    $(".card-table").css("display", "table");
 }
 
 function reset() {
@@ -24,10 +26,21 @@ function changeDifficulty(selected) {
     setup(currentDifficulty);
 }
 
+function toggleVolume() {
+    if(!volume) {
+        $('.volume').html('<i class="fa fa-volume-up"></i>');
+        volume = true;
+    } else {
+        $('.volume').html('<i class="fa fa-volume-off"></i>');
+        volume = false;
+    }
+}
+
 // Game setup
 const difficulties = {"easy":4,"medium":5,"hard":6};
 var currentDifficulty = "medium";
 var cardToCellMap;
+var volume = true;
 
 function setup(difficulty) {
     let columns = difficulties[difficulty];
@@ -143,18 +156,27 @@ function turnCard(id) {
             },500);
         }
     }
+    if(matches === (difficulty * 2)) {
+        endGame();
+    }
+}
+
+function endGame() {
+
 }
 
 function giveFeedback(match) {
     var id = match === true ? "tick" : "redX";
     // audio files from https://kenney.nl/assets/interface-sounds
-    var audioFile = match === true ? "confirmation_002" : "error_005";
 
     $(`#${id}`).css("display","block");
     setTimeout(function() { $(`#${id}`).css("display","none"); }, 1000);
 
-    var audio = new Audio(`assets/audio/${audioFile}.ogg`);
-    audio.play();
+    if(volume) {
+        var audioFile = match === true ? "confirmation_002" : "error_005";
+        var audio = new Audio(`assets/audio/${audioFile}.ogg`);
+        audio.play();
+    }
 }
 
 $(document).ready(function() {
