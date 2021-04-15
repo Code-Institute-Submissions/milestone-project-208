@@ -18,7 +18,7 @@ function hideHelp() {
 }
 
 function reset() {
-    if(turns > 0) {
+    if(turns > 0 && win === false) {
         if(!confirm("Are you sure? You'll lose progress in your current game")) {
             return;
         }
@@ -28,7 +28,7 @@ function reset() {
 }
 
 function changeDifficulty(selected) {
-    if(turns > 0) {
+    if(turns > 0 && win === false) {
         if(!confirm("Are you sure? You'll lose progress in your current game")) {
             return;
         }
@@ -53,11 +53,13 @@ const difficulties = {"easy":4,"medium":5,"hard":6};
 var currentDifficulty = "medium";
 var cardToCellMap;
 var volume = true;
+var win;
 
 function setup(difficulty) {
     $("#help-section").css("display", "none");
     $("#win-section").css("display", "none");
     $(".card-table").css("display", "table");
+    win = false;
     let columns = difficulties[difficulty];
     let randomCards = buildCardDeck(columns);
     let cellIDs = buildCellIDs(columns);
@@ -173,8 +175,19 @@ function turnCard(id) {
 }
 
 function endGame() {
+    win = true;
     if(!Number.isInteger(best) || turns < best) {
-        $("#best").html(turns);
+        best = turns;
+        $("#best").html(best);
+        $("#win-text").html(`<br><br><p>Congrats! You set a new high score<br><br>Best: ${best}</p>`)
+    } else if( (best/turns) > .8 ) {
+        $("#win-text").html(`<br><br><p>So close to your best score, keep trying<br><br>Score: ${turns}<br>Best: ${best}</p>`)
+    } else {
+        $("#win-text").html(`<br><br><p>Well done, here's your score<br><br>Score: ${turns}<br>Best: ${best}</p>`)
+    }
+    if(volume) {
+        var audio = new Audio(`assets/audio/you_win.ogg`);
+        audio.play();
     }
     $("#win-section").css("display", "block");
     $(".card-table").css("display", "none");
