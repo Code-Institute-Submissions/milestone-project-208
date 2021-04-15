@@ -55,6 +55,9 @@ var cardToCellMap;
 var volume = true;
 
 function setup(difficulty) {
+    $("#help-section").css("display", "none");
+    $("#win-section").css("display", "none");
+    $(".card-table").css("display", "table");
     let columns = difficulties[difficulty];
     let randomCards = buildCardDeck(columns);
     let cellIDs = buildCellIDs(columns);
@@ -77,7 +80,6 @@ function setup(difficulty) {
 function mapCardsToIDs(cellIDs, cards) {
     let cardToCellMap = {};
     let rand;
-    let cardCount = cards.length;
     cards.forEach(function(card) {
         rand = Math.floor(Math.random() * cellIDs.length);
         cell1 = cellIDs.splice(rand,1)[0];
@@ -171,8 +173,11 @@ function turnCard(id) {
 }
 
 function endGame() {
-    console.log(best);
-    console.log('you win');
+    if(!Number.isInteger(best) || turns < best) {
+        $("#best").html(turns);
+    }
+    $("#win-section").css("display", "block");
+    $(".card-table").css("display", "none");
 }
 
 function giveFeedback(match) {

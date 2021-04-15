@@ -67,8 +67,12 @@
     <section class="container-fluid section-image">
         <div class="game-container">
             <div id="help-section">
-                <p>Click/tap on any two cards to turn them over. If they are the same, they will stay face up. Otherwise they will both turn face down again. Try to match all the cards in as few turns as possible</p>
+                <div><p>Click/tap on any two cards to turn them over. If they are the same, they will stay face up. Otherwise they will both turn face down again. Try to match all the cards in as few turns as possible</p></div>
                 <button id="hide-help" onclick="hideHelp()">OK</button>
+            </div>
+            <div id="win-section">
+                <div id="win-text"><p>dummy text</p></div>
+                <button onclick="reset()">Replay</button>
             </div>
             <!-- tick and red x images obtained from http://opengameart.org/content/free-game-gui -->
             <div class="feedback" id="tick"><img src="assets/images/tick.png" alt="tick"></div>

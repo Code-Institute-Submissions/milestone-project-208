@@ -82,9 +82,9 @@ a {
     font-size: 22px;
 }
 
-/* help styles */
+/* help and win styles */
 
-#help-section {
+#help-section, #win-section {
     position: relative;
     top: 100px;
     margin: auto;
@@ -97,14 +97,14 @@ a {
     display: none;
 }
 
-#help-section p {
+#help-section p, #win-section p {
     text-align: center;
     color: white;
     font-family: "Handlee", sans-serif;
     padding: 15px;
 }
 
-#help-section button {
+#help-section button, #win-section button {
     margin: 20px auto;
     display: block;
 }
