@@ -50,7 +50,6 @@ function setup(difficulty) {
     var width = 100/columns;
 
     turns = 0;
-    best = 0;
     matches = 0;
     $('#turns').html(turns);
     $('#matches').html(matches);
@@ -117,9 +116,7 @@ function buildCardDeck(columns) {
 // game play
 var faceUpCard = "";
 var faceUpCell = "";
-var turns = 0;
-var best = 0;
-var matches = 0;
+var best;
 var pause = false;
 
 function turnCard(id) {
@@ -156,13 +153,13 @@ function turnCard(id) {
             },500);
         }
     }
-    if(matches === (difficulty * 2)) {
+    if(matches === (difficulties[currentDifficulty] * 2)) {
         endGame();
     }
 }
 
 function endGame() {
-
+    console.log('you win');
 }
 
 function giveFeedback(match) {
