@@ -18,16 +18,20 @@ function hideHelp() {
 }
 
 function reset() {
-    if(!confirm("Press a button!")) {
-        return;
+    if(turns > 0) {
+        if(!confirm("Are you sure? You'll lose progress in your current game")) {
+            return;
+        }
     }
     $("#menu-list").css("display", "none");
     setup(currentDifficulty);
 }
 
 function changeDifficulty(selected) {
-    if(!confirm("Press a button!")) {
-        return;
+    if(turns > 0) {
+        if(!confirm("Are you sure? You'll lose progress in your current game")) {
+            return;
+        }
     }
     $("#menu-list").css("display", "none");
     currentDifficulty = selected.value;
@@ -167,6 +171,7 @@ function turnCard(id) {
 }
 
 function endGame() {
+    console.log(best);
     console.log('you win');
 }
 
