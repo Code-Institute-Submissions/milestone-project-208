@@ -18,10 +18,18 @@ function hideHelp() {
 }
 
 function reset() {
+    if(!confirm("Press a button!")) {
+        return;
+    }
+    $("#menu-list").css("display", "none");
     setup(currentDifficulty);
 }
 
 function changeDifficulty(selected) {
+    if(!confirm("Press a button!")) {
+        return;
+    }
+    $("#menu-list").css("display", "none");
     currentDifficulty = selected.value;
     setup(currentDifficulty);
 }
