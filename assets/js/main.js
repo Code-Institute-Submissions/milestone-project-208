@@ -54,6 +54,8 @@ var currentDifficulty = "medium";
 var cardToCellMap;
 var volume = true;
 var win;
+var turns;
+var matches;
 
 function setup(difficulty) {
     $("#help-section").css("display", "none");
@@ -84,9 +86,9 @@ function mapCardsToIDs(cellIDs, cards) {
     let rand;
     cards.forEach(function(card) {
         rand = Math.floor(Math.random() * cellIDs.length);
-        cell1 = cellIDs.splice(rand,1)[0];
+        var cell1 = cellIDs.splice(rand,1)[0];
         rand = Math.floor(Math.random() * cellIDs.length);
-        cell2 = cellIDs.splice(rand,1)[0];
+        var cell2 = cellIDs.splice(rand,1)[0];
         cardToCellMap[cell1] = card;
         cardToCellMap[cell2] = card;
     });
@@ -124,7 +126,7 @@ function buildCardDeck(columns) {
     for(let x = 0; x < ((columns * 4)/2); x++) {
         let rand = Math.floor(Math.random() * limit);
         limit--;
-        cardsChosen.push(deck.splice(rand,1)[0])
+        cardsChosen.push(deck.splice(rand,1)[0]);
     }
     return cardsChosen;
 }
@@ -179,11 +181,11 @@ function endGame() {
     if(!Number.isInteger(best) || turns < best) {
         best = turns;
         $("#best").html(best);
-        $("#win-text").html(`<br><br><p>Congrats! You set a new high score<br><br>Best: ${best}</p>`)
-    } else if( (best/turns) > .8 ) {
-        $("#win-text").html(`<br><br><p>So close to your best score, keep trying<br><br>Score: ${turns}<br>Best: ${best}</p>`)
+        $("#win-text").html(`<br><br><p>Congrats! You set a new high score<br><br>Best: ${best}</p>`);
+    } else if( (best/turns) > 0.8 ) {
+        $("#win-text").html(`<br><br><p>So close to your best score, keep trying<br><br>Score: ${turns}<br>Best: ${best}</p>`);
     } else {
-        $("#win-text").html(`<br><br><p>Well done, here's your score<br><br>Score: ${turns}<br>Best: ${best}</p>`)
+        $("#win-text").html(`<br><br><p>Well done, here's your score<br><br>Score: ${turns}<br>Best: ${best}</p>`);
     }
     if(volume) {
         var audio = new Audio(`assets/audio/you_win.ogg`);
