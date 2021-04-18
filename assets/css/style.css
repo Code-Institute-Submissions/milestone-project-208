@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent Marker:100,200,300,400,500,600,700|Handlee:100,200,300,400,500,600,700');
 
-/* general styles */
+/* --------- general styles --------- */
 
+/* sets the green tiled background image for the board */
 .section-image {
     /* image sourced from https://opengameart.org/content/background-texture-for-a-board-game */
     background: url("../images/background-image.png");
@@ -11,10 +12,12 @@
     min-height: 900px;
 }
 
+/* hides decoration for any links */
 a {
     text-decoration: none;
 }
 
+/* repositions the visual feedback elemnts */
 .feedback {
     position: absolute;
     top: 825px;
@@ -22,56 +25,71 @@ a {
     display: none;
 }
 
+/* sets the feedback image slightly left. This is to ensure it is properly centred */
 .feedback img {
     position: relative;
     left: -50%;
 }
 
-/* logo, menu and score styles */
+/* allows items to be hidden */
+.hidden {
+    width: 0%;
+    display: none;
+}
 
+/* --------- logo, menu and score styles --------- */
+
+/* Sets the background/hegith for the top section */
 .logo-menu-score {
     background-color: #000;
     min-height: 120px;
 }
 
+/* sets style for the logo */
 .logo {
     font-family: "Permanent Marker", sans-serif;
     text-align: center;
     color: red;
 }
 
+/* sets postion for the menu and volume section */
 .menu-volume {
     text-align: right;
     position: relative;
 }
 
+/* sets style for volume and menu */
 .volume, .menu {
-    color: white !important;
+    color: white;
     font-size: 24px;
     padding-right:10px;
 }
 
+/* sets style for the dropdown menu */
 #menu-list {
+    background-color: gray;
     display: none;
     position: absolute;
     top: 32px;
     right: 10px;
 }
 
+/* sets style for each item on the menu */
 .menu-item {
-    background-color: gray;
     text-align: center;
     font-family: "Handlee", sans-serif;
     color: white;
     display: block;
 }
 
+/* sets style for the difficulty selector */
 #difficulty {
     background-color: gray;
     color: white;
     border:0px;
 }
 
+/* sets style for the score section */
 .score {
     width: 80%;
     padding-top: 20px;
@@ -82,8 +100,9 @@ a {
     font-size: 22px;
 }
 
-/* help and win styles */
+/* --------- help and win styles --------- */
 
+/* sets background image and position for help/win section */
 #help-section, #win-section {
     position: relative;
     top: 100px;
@@ -97,6 +116,7 @@ a {
     display: none;
 }
 
+/* sets style for text in win/help section */
 #help-section p, #win-section p {
     text-align: center;
     color: white;
@@ -104,17 +124,20 @@ a {
     padding: 15px;
 }
 
+/* sets style for button in help/win section */
 #help-section button, #win-section button {
     margin: 20px auto;
     display: block;
 }
 
-/* card styles */
+/* --------- card styles --------- */
 
+/* centres the card table */
 .card-table {
     margin: auto;
 }
 
+/* sets a default background image for each cell in the table */
 .background-img {
     background: url("../images/cardBack_red2.png");
     background-position: center center;
@@ -127,17 +150,16 @@ a {
     width: 98px;
 }
 
+/* sets position for card images when they are shown */
 .card-image {
     width: 98px;
     height: 133px;
 }
 
-.hidden {
-    width: 0%;
-    display: none;
-}
 
-/* media queries */
+
+/* --------- media queries --------- */
+/* overrides for smaller screens */
 
 @media(max-width: 750px) {
 

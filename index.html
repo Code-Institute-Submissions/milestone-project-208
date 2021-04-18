@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- this section contains all the css and javascript imports that are required before the HTML is loaded -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,32 +12,40 @@
 </head>
 <body>
     <header>
+        <!-- This section contains the logo text, the menu items and the score section -->
         <div class="logo-menu-score">
             <div class="row no-gutters ">
-                <div class="col-0 col-lg-3"></div>
+                <div class="col-0 col-lg-3"></div><!-- this is to help keep the logo centred on larger screens, but allows it to move to the left on smaller ones -->
                 <div class="col-9 col-lg-6">
+                    <!-- This section is for the logo -->
                     <div class="logo">
                         <h1>Memory Master</h1>
                     </div>
                 </div>
+                <!-- This section is for the menu -->
                 <div class="col-3 menu-volume">
+                    <!-- this calls a JS function that toggles the volume -->
                     <a href="javascript:void(0);" class="volume" onclick="toggleVolume()">
                         <i class="fa fa-volume-up"></i>
                     </a>
+                    <!-- this calls a JS function that shows/hides the menu -->
                     <a href="javascript:void(0);" class="menu" onclick="toggleMenu()">
                         <i class="fa fa-bars"></i>
                     </a>
                     <div id="menu-list">
                         <div class="menu-item">
+                            <!-- changing this calls a function to change the game difficulty -->
                             <select name="difficulty" id="difficulty" onchange="changeDifficulty(this)">
                                 <option value="easy">Easy</option>
                                 <option value="medium" selected>Medium</option>
                                 <option value="hard">Hard</option>
                             </select>
                         </div>
+                        <!-- this calls a JS function to restart the game -->
                         <a href="javascript:void(0);" class="menu-item" onclick="reset()">
                             Reset
                         </a>
+                        <!-- this calls a function to show the help section -->
                         <a href="javascript:void(0);" class="menu-item" onclick="showHelp()">
                            Help
                         </a>
@@ -45,6 +53,7 @@
                 </div>
             </div>
             <div class="score row no-gutters">
+                <!-- this section shows the player progress, current score and best score -->
                 <div class="col-4">
                     <span>Matches: </span>
                     <span class="counter" id="matches">0</span>
@@ -63,19 +72,24 @@
     </header>
     <section class="container-fluid section-image">
         <div class="game-container">
+            <!-- this is a container for all game play related items -->
             <div id="help-section">
+                <!-- this is the help section, it is hidden by default -->
                 <div><p>Click/tap on any two cards to turn them over. If they are the same, they will stay face up. Otherwise they will both turn face down again. Try to match all the cards in as few turns as possible</p></div>
                 <button id="hide-help" onclick="hideHelp()">OK</button>
             </div>
             <div id="win-section">
-                <div id="win-text"><p>dummy text</p></div>
+                <!-- this is hidden by default and shows at the end game -->
+                <div id="win-text"><p></p></div>
                 <button onclick="reset()">Replay</button>
             </div>
             <!-- tick and red x images obtained from http://opengameart.org/content/free-game-gui -->
+            <!-- These are for player feedback, they are hidden by default and briefly shown after the player turns over 2 cards -->
             <div class="feedback" id="tick"><img src="assets/images/tick.png" alt="tick"></div>
             <div class="feedback" id="redX"><img src="assets/images/redX.png" alt="Red X"></div>
             <table class="card-table">
-                <tr id="row1">
+                <!-- basic layout for a table to put the cards in -->
+                <tr>
                     <td class="card-cell turnable" id="r0c0"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r0c1"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r0c2"><div class="background-img"></div></td>
@@ -83,7 +97,7 @@
                     <td class="card-cell turnable" id="r0c4"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r0c5"><div class="background-img"></div></td>
                 </tr>
-                <tr id="row2">
+                <tr>
                     <td class="card-cell turnable" id="r1c0"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r1c1"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r1c2"><div class="background-img"></div></td>
@@ -91,7 +105,7 @@
                     <td class="card-cell turnable" id="r1c4"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r1c5"><div class="background-img"></div></td>
                 </tr>
-                <tr id="row3">
+                <tr>
                     <td class="card-cell turnable" id="r2c0"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r2c1"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r2c2"><div class="background-img"></div></td>
@@ -99,7 +113,7 @@
                     <td class="card-cell turnable" id="r2c4"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r2c5"><div class="background-img"></div></td>
                 </tr>
-                <tr id="row4">
+                <tr>
                     <td class="card-cell turnable" id="r3c0"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r3c1"><div class="background-img"></div></td>
                     <td class="card-cell turnable" id="r3c2"><div class="background-img"></div></td>
@@ -111,6 +125,7 @@
             </table>
         </div>
     </section>
+    <!-- importing the custom JS -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
