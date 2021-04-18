@@ -95,7 +95,15 @@ Wireframes can be viewed [here](wireframes/ms2.pdf)
 
 ## Testing
 1. Ran LightHouse on the page
-2. Checked all code in appropriate linters ()
+2. Checked all code in appropriate linters (jshint.com, jigsaw CSS validator, w3c HTML validator)
+3. Verify sound doesn't play when muted
+4. Checked that user would be prompted before resetting game/changing difficulty, but only if they've already made a move
+5. Tried clicking 3 cards in quick succession
+6. Checked that help and win screens both display correctly
+7. Checked that high score is kept between resets, and that appropriate message is shown if new score beats/is close to old high score
+
+### Issues encountered
+- Handling 3 fast clicks was originally done by removing event listeners and re-adding them. This was resulting in "undefined" errors in the console. Instead a timer is set, then this is checked in the turnCard function. If the timer hasn't run out, the code will be directed to a return statement instead of executing any functionality
 
 ## Deployment
 
@@ -112,15 +120,7 @@ Wireframes can be viewed [here](wireframes/ms2.pdf)
 
 ## Credits
 
-### Content
-- 
-
 ### Media
 #### The images used in this site were obtained from ...
 - opengameart.org
 - https://kenney.nl
-
-### Code
-
-### Acknowledgements
-- 
