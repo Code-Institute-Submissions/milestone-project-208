@@ -23,7 +23,7 @@ Developer and Business goals
 As an adult I want...
 1. Different difficulty options to suit the amount of free time I currently have
 2. To be able to set a high score and try to beat it
-3. The number of matches made/remaining to be visible on screen
+3. The number of matches made to be visible on screen
 4. Visual feedback on which cards are already matched
 
 #### As a child I want...
@@ -32,7 +32,12 @@ As an adult I want...
 3. Easily recognisable cards/patterns
 4. Acknowledgement when I set a new high score or "good" score (i.e. close to high score)
 
-![Example images of user stories](assets/readme-screenshots/image.png)
+![Changing difficulty and high score/number of matches made](assets/readme-screenshots/difficulty.png)
+![Visually see which cards are matched](assets/readme-screenshots/matched-cards.png)
+![Visual feedback when cards don't match](assets/readme-screenshots/feedback.png)
+![High score messaging](assets/readme-screenshots/high-score.png)
+![Confirmation required to restart game](assets/readme-screenshots/reset-confirmation.png)
+
 
 ### Design Choices
 The game is designed to feel like it is being played on a real board with real cards to help immerse the player. The design choices were made around this theme.
@@ -57,7 +62,7 @@ The game is designed to feel like it is being played on a real board with real c
 - The icons were chosen to be as simple as possible. This makes it intuitive for both adults and children to understand what they do and allows them to play the game without distraction
 
 #### Audio
-- A "swipe" sound is played when turning a card to increase immersion
+- A "buzz" sound is played when when two cards don't match
 - A "ding" sound is used to give positive feedback when a match is found
 - A small theme tune will play when the player beats their top score 
 
@@ -67,13 +72,30 @@ Wireframes can be viewed [here](wireframes/ms2.pdf)
 ## Features
 
 ### Existing Features
-- 
+- Audio and visual feedback given to player
+- Current and best score shown
+- Turn audio on and off
+- Change difficulty
+- Restart game
+- Show/hide instructions for game
 
 ## Technologies Used
-- 
+- [HTML](https://www.w3.org/)
+    - The project uses **HTML** for the content of the site.
+- [CSS](https://www.w3.org/)
+    - The project uses **CSS** for the layout of the site.
+- [Bootstrap](https://getbootstrap.com/)
+    - The project uses **Bootstrap** to give a responsive layout.
+- [Font Awesome](https://fontawesome.com/)
+    - The project uses **Fontawesome** to add icons.
+- [javascript](https://www.javascript.com/)
+    - The project uses **Javascript** to make the site interactive
+- [jquery](https://jquery.com/)
+    - The project uses **jQuery** to simplify and improve the site's interactivity
 
 ## Testing
-1. 
+1. Ran LightHouse on the page
+2. Checked all code in appropriate linters ()
 
 ## Deployment
 
