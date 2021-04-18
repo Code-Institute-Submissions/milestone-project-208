@@ -102,6 +102,19 @@ Wireframes can be viewed [here](wireframes/ms2.pdf)
 6. Checked that help and win screens both display correctly
 7. Checked that high score is kept between resets, and that appropriate message is shown if new score beats/is close to old high score
 
+### User Story Testing
+#### Adult User Story
+1. Difficulty can be changed without issue.
+2. High score is maintained between games and messaging is given to encourage beating it.
+3. When a match is made, the number shown in the score bar is updated.
+4. Matched cards are shown face up.
+
+#### Child User Story
+1. The difficulty can be reduced to show fewer cards.
+2. Audio and visual feedback are given when cards are matched, different feedback is given when they don't.
+3. The cards are clear and familiar
+4. Different messaging is shown based on the score I set
+
 ### Issues encountered
 - Handling 3 fast clicks was originally done by removing event listeners and re-adding them. This was resulting in "undefined" errors in the console. Instead a timer is set, then this is checked in the turnCard function. If the timer hasn't run out, the code will be directed to a return statement instead of executing any functionality
 
